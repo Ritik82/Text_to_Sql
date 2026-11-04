@@ -101,6 +101,7 @@ Solid arrows represent the main request path. Dashed arrows represent schema con
 Text_to_Sql/
 ├── agent.py        # Database manager, LLM pipeline, validation, and query execution
 ├── app.py          # Streamlit user interface
+├── requirements.txt # Python runtime dependencies
 ├── .env.example    # Environment-variable template
 ├── .gitignore      # Local environment and secret exclusions
 └── README.md       # Project documentation
@@ -127,7 +128,7 @@ python -m venv venv
 .\venv\Scripts\Activate.ps1
 
 python -m pip install --upgrade pip
-python -m pip install streamlit mysql-connector-python langchain-groq langchain-core langgraph prettytable colorama python-dotenv
+python -m pip install -r requirements.txt
 ```
 
 If PowerShell prevents activation, either allow local scripts for your user or run the commands using `venv\Scripts\python.exe` directly.
@@ -142,7 +143,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 python -m pip install --upgrade pip
-python -m pip install streamlit mysql-connector-python langchain-groq langchain-core langgraph prettytable colorama python-dotenv
+python -m pip install -r requirements.txt
 ```
 
 ## Configuration
@@ -291,5 +292,3 @@ There are currently no automated tests in the repository. When adding features, 
 - Schema discovery is performed when the database is connected; changes made later may require reconnecting.
 - Results are displayed in full in the Streamlit table, while only the first ten rows are used for LLM answer formatting.
 - The current workflow is intentionally read-only and does not support inserts, updates, deletes, DDL, or stored procedures.
-
-
